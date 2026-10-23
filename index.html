@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI ToolBox – Discover the Best AI Tools</title>
+<style>
+:root{--bg:#0a0f24;--bg2:#101735;--card:#131b3d;--line:#263262;--text:#eef1ff;--muted:#a6b0d6;--p:#8b5cf6;--b:#3b82f6;--grad:linear-gradient(135deg,#8b5cf6,#3b82f6);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:radial-gradient(900px 500px at 15% -5%,rgba(139,92,246,.25),transparent),radial-gradient(800px 500px at 90% 5%,rgba(59,130,246,.2),transparent),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#a5b4fc}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(10,15,36,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:16px;min-height:66px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.2rem;color:var(--text);text-decoration:none}
+.logo i{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--grad);font-style:normal;box-shadow:0 0 18px rgba(139,92,246,.6)}
+nav{display:flex;gap:4px;margin-left:auto;align-items:center}
+nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;font-size:.95rem}
+nav a:hover,nav a:focus-visible{color:#fff;background:rgba(139,92,246,.18)}
+.hsearch{flex:0 1 260px}
+.menu{display:none;margin-left:auto;background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:10px;width:44px;height:44px;font-size:1.3rem;cursor:pointer}
+.sbox{position:relative}
+.sbox input{width:100%;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--bg2);color:var(--text);padding:0 40px 0 14px;font-size:1rem}
+.sbox input:focus,.sel:focus,button:focus-visible,a:focus-visible{outline:2px solid var(--b);outline-offset:2px}
+.sbox button{position:absolute;right:4px;top:4px;width:36px;height:36px;border:0;border-radius:8px;background:transparent;color:var(--muted);cursor:pointer;font-size:1.1rem}
+.mnav{display:none}
+@media(max-width:860px){nav,.hsearch{display:none}.menu{display:block}.mnav.open{display:block;padding:0 0 16px}.mnav a{display:block;color:var(--text);text-decoration:none;padding:12px;border-radius:10px}.mnav a:hover{background:rgba(139,92,246,.18)}.mnav .sbox{margin-bottom:8px}}
+.hero{text-align:center;padding:72px 0 40px}
+.hero h1{font-size:clamp(2.1rem,6vw,3.8rem);line-height:1.1;margin:0 0 16px;letter-spacing:-.02em}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:600px;margin:0 auto 28px;color:var(--muted);font-size:1.1rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:0 20px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--text);font-weight:600;font-size:.95rem;text-decoration:none;cursor:pointer}
+.btn.pri{background:var(--grad);border-color:transparent;color:#fff;box-shadow:0 0 22px rgba(99,102,241,.45)}
+.btn:hover{filter:brightness(1.12)}
+section{padding:40px 0}
+h2{font-size:1.7rem;margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 22px}
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+.cat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 14px;text-align:left;color:var(--text);cursor:pointer;transition:.2s;font:inherit}
+.cat:hover,.cat.on{border-color:var(--p);box-shadow:0 0 24px rgba(139,92,246,.35);transform:translateY(-2px)}
+.cat .ic{font-size:1.7rem;display:block;margin-bottom:6px}
+.cat b{display:block;font-size:.98rem}.cat span.n{color:var(--muted);font-size:.85rem}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;flex:1 1 100%}
+.chip{border:1px solid var(--line);background:var(--bg2);color:var(--muted);padding:8px 14px;border-radius:999px;cursor:pointer;font:inherit;font-size:.9rem;min-height:40px}
+.chip.on{background:var(--grad);color:#fff;border-color:transparent}
+.sel{height:44px;border-radius:12px;border:1px solid var(--line);background:var(--bg2);color:var(--text);padding:0 12px;font-size:.95rem}
+.count{color:var(--muted);margin-left:auto;font-size:.9rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.card{background:linear-gradient(180deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:10px;transition:.2s}
+.card:hover{border-color:var(--b);box-shadow:0 0 26px rgba(59,130,246,.25)}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.card h3{margin:0;font-size:1.15rem}
+.tag{display:inline-block;font-size:.78rem;color:#c4b5fd;background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.35);padding:2px 10px;border-radius:999px}
+.card p{margin:0;color:var(--muted);font-size:.93rem;flex:1}
+.fav{width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--bg2);color:var(--muted);font-size:1.25rem;cursor:pointer;flex:none}
+.fav.on{color:#f472b6;border-color:#f472b6;box-shadow:0 0 14px rgba(244,114,182,.4)}
+.empty{text-align:center;padding:48px 20px;border:1px dashed var(--line);border-radius:18px;color:var(--muted)}
+.empty h3{color:var(--text);margin:0 0 6px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px}
+.panel p,.panel li{color:var(--muted)}
+footer{border-top:1px solid var(--line);margin-top:30px;padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script>
+(function(){
+var h=React.createElement,useState=React.useState,useMemo=React.useMemo,useEffect=React.useEffect;
+
+/* ---------- DATA (descriptions are brief and general; no pricing labels, ratings or reviews) ---------- */
+var CATEGORIES=[
+ {id:"chatbots",name:"AI Chatbots",icon:"💬"},
+ {id:"image",name:"AI Image",icon:"🎨"},
+ {id:"video",name:"AI Video",icon:"🎬"},
+ {id:"writing",name:"Writing",icon:"✍️"},
+ {id:"coding",name:"Coding",icon:"💻"},
+ {id:"education",name:"Education",icon:"🎓"},
+ {id:"productivity",name:"Productivity",icon:"⚡"}];
+var TOOLS=[
+ {id:"chatgpt",name:"ChatGPT",cat:"chatbots",desc:"OpenAI’s conversational assistant for answering questions, writing, analysis and more.",url:"https://chatgpt.com/"},
+ {id:"claude",name:"Claude",cat:"chatbots",desc:"Anthropic’s AI assistant for writing, analysis, coding and thoughtful conversation.",url:"https://claude.ai/"},
+ {id:"gemini",name:"Google Gemini",cat:"chatbots",desc:"Google’s AI assistant for chat, research and creative help.",url:"https://gemini.google.com/"},
+ {id:"copilot",name:"Microsoft Copilot",cat:"chatbots",desc:"Microsoft’s AI companion for answers, drafting and everyday tasks.",url:"https://copilot.microsoft.com/"},
+ {id:"perplexity",name:"Perplexity",cat:"chatbots",desc:"An AI answer engine that searches the web and responds with sources.",url:"https://www.perplexity.ai/"},
+ {id:"leonardo",name:"Leonardo AI",cat:"image",desc:"Generative AI platform for creating images and visual assets.",url:"https://leonardo.ai/"},
+ {id:"ideogram",name:"Ideogram",cat:"image",desc:"Text-to-image generator known for rendering text inside images.",url:"https://ideogram.ai/"},
+ {id:"firefly",name:"Adobe Firefly",cat:"image",desc:"Adobe’s generative AI for images, effects and creative workflows.",url:"https://firefly.adobe.com/"},
+ {id:"canva",name:"Canva",cat:"image",desc:"Design platform with built-in AI features for graphics, presentations and more.",url:"https://www.canva.com/"},
+ {id:"midjourney",name:"Midjourney",cat:"image",desc:"AI image generation focused on artistic, high-quality visuals.",url:"https://www.midjourney.com/"},
+ {id:"runway",name:"Runway",cat:"video",desc:"AI tools for generating and editing video.",url:"https://runwayml.com/"},
+ {id:"pika",name:"Pika",cat:"video",desc:"AI video generator for turning ideas and images into short clips.",url:"https://pika.art/"},
+ {id:"luma",name:"Luma AI",cat:"video",desc:"Generative AI for video and 3D content creation.",url:"https://lumalabs.ai/"},
+ {id:"elevenlabs",name:"ElevenLabs",cat:"video",desc:"AI audio platform for realistic voices, speech and voiceovers (useful for video projects).",url:"https://elevenlabs.io/"},
+ {id:"suno",name:"Suno",cat:"video",desc:"AI music generator for songs and soundtracks (useful for video projects).",url:"https://suno.com/"},
+ {id:"grammarly",name:"Grammarly",cat:"writing",desc:"AI writing assistant for grammar, clarity, tone and style.",url:"https://www.grammarly.com/"},
+ {id:"quillbot",name:"QuillBot",cat:"writing",desc:"Paraphrasing, summarizing and grammar tools for writers and students.",url:"https://quillbot.com/"},
+ {id:"deepl",name:"DeepL",cat:"writing",desc:"AI translation and writing assistance across many languages.",url:"https://www.deepl.com/"},
+ {id:"ghcopilot",name:"GitHub Copilot",cat:"coding",desc:"AI pair programmer that suggests code inside your editor.",url:"https://github.com/features/copilot"},
+ {id:"cursor",name:"Cursor",cat:"coding",desc:"AI-first code editor for writing and editing code with AI.",url:"https://cursor.com/"},
+ {id:"replit",name:"Replit",cat:"coding",desc:"Online coding environment with AI help for building and running apps.",url:"https://replit.com/"},
+ {id:"huggingface",name:"Hugging Face",cat:"coding",desc:"Hub for open AI models, datasets and demos for developers and researchers.",url:"https://huggingface.co/"},
+ {id:"khan",name:"Khan Academy",cat:"education",desc:"Nonprofit learning platform with lessons, practice and AI tutoring features.",url:"https://www.khanacademy.org/"},
+ {id:"photomath",name:"Photomath",cat:"education",desc:"Math learning app that explains problems step by step.",url:"https://photomath.com/"},
+ {id:"notion",name:"Notion",cat:"productivity",desc:"Workspace for notes, docs and projects with built-in AI features.",url:"https://www.notion.so/"},
+ {id:"zapier",name:"Zapier",cat:"productivity",desc:"Automation platform connecting apps and workflows, including AI steps.",url:"https://zapier.com/"}];
+var CAT_NAME={};CATEGORIES.forEach(function(c){CAT_NAME[c.id]=c.name});
+var KEY="aitoolbox:favorites:v1";
+var CONTACT_EMAIL="your-email@example.com"; /* placeholder: replace with your real address */
+
+/* ---------- SAFE STORAGE ---------- */
+function loadFavs(){
+ try{var raw=window.localStorage.getItem(KEY);if(!raw)return[];var v=JSON.parse(raw);if(!Array.isArray(v))return[];
+  var ids=TOOLS.map(function(t){return t.id});
+  return v.filter(function(x,i){return typeof x==="string"&&ids.indexOf(x)>-1&&v.indexOf(x)===i})}
+ catch(e){return[]}
+}
+function saveFavs(f){try{window.localStorage.setItem(KEY,JSON.stringify(f))}catch(e){}}
+
+/* ---------- COMPONENTS ---------- */
+function SearchBox(p){
+ return h("div",{className:"sbox",role:"search"},
+  h("input",{type:"search","aria-label":"Search AI tools",placeholder:"Search tools…",value:p.value,onChange:function(e){p.onChange(e.target.value);if(p.onType)p.onType()}}),
+  p.value?h("button",{type:"button","aria-label":"Clear search",onClick:function(){p.onChange("")}},"✕"):null);
+}
+function Header(p){
+ var _=useState(false),open=_[0],setOpen=_[1];
+ var links=[["Home","#top"],["Tools","#tools"],["About","#about"],["Contact","#contact"],["Privacy","#privacy"]];
+ function close(){setOpen(false)}
+ function goSearch(){var el=document.getElementById("tools");if(el)el.scrollIntoView()}
+ return h("header",null,h("div",{className:"wrap"},
+  h("div",{className:"bar"},
+   h("a",{className:"logo",href:"#top","aria-label":"AI ToolBox home"},h("i",{"aria-hidden":"true"},"✦"),"AI ToolBox"),
+   h("div",{className:"hsearch"},h(SearchBox,{value:p.query,onChange:p.setQuery,onType:goSearch})),
+   h("nav",{"aria-label":"Main navigation"},links.map(function(l){return h("a",{key:l[0],href:l[1]},l[0])})),
+   h("button",{className:"menu",type:"button","aria-label":open?"Close menu":"Open menu","aria-expanded":open,"aria-controls":"mnav",onClick:function(){setOpen(!open)}},open?"✕":"☰")),
+  h("div",{id:"mnav",className:"mnav"+(open?" open":"")},
+   h(SearchBox,{value:p.query,onChange:p.setQuery,onType:goSearch}),
+   h("nav",{"aria-label":"Mobile navigation"},links.map(function(l){return h("a",{key:l[0],href:l[1],onClick:close},l[0])})))));
+}
+function CategoryCard(p){
+ return h("button",{type:"button",className:"cat"+(p.active?" on":""),"aria-pressed":p.active,onClick:p.onClick},
+  h("span",{className:"ic","aria-hidden":"true"},p.icon),h("b",null,p.name),
+  h("span",{className:"n"},p.count+(p.count===1?" tool":" tools")));
+}
+function ToolCard(p){
+ var t=p.tool;
+ return h("article",{className:"card"},
+  h("div",{className:"top"},
+   h("div",null,h("h3",null,t.name),h("span",{className:"tag"},CAT_NAME[t.cat])),
+   h("button",{type:"button",className:"fav"+(p.fav?" on":""),"aria-pressed":p.fav,"aria-label":(p.fav?"Remove ":"Add ")+t.name+(p.fav?" from favorites":" to favorites"),onClick:function(){p.toggle(t.id)}},p.fav?"♥":"♡")),
+  h("p",null,t.desc),
+  h("a",{className:"btn pri",href:t.url,target:"_blank",rel:"noopener noreferrer","aria-label":"Visit "+t.name+" (opens in a new tab)"},"Visit Tool ↗"));
+}
+
+function App(){
+ var s1=useState(""),query=s1[0],setQuery=s1[1];
+ var s2=useState("all"),cat=s2[0],setCat=s2[1];
+ var s3=useState("az"),sort=s3[0],setSort=s3[1];
+ var s4=useState(loadFavs),favs=s4[0],setFavs=s4[1];
+ useEffect(function(){saveFavs(favs)},[favs]);
+ function toggle(id){setFavs(function(f){return f.indexOf(id)>-1?f.filter(function(x){return x!==id}):f.concat(id)})}
+ var counts=useMemo(function(){var c={};TOOLS.forEach(function(t){c[t.cat]=(c[t.cat]||0)+1});return c},[]);
+ var shown=useMemo(function(){
+  var q=query.trim().toLowerCase();
+  var list=TOOLS.filter(function(t){
+   return (cat==="all"||t.cat===cat)&&(!q||(t.name+" "+t.desc+" "+CAT_NAME[t.cat]).toLowerCase().indexOf(q)>-1)});
+  list=list.slice().sort(function(a,b){
+   if(sort==="fav"){var d=(favs.indexOf(b.id)>-1)-(favs.indexOf(a.id)>-1);if(d)return d}
+   return a.name.localeCompare(b.name)});
+  return list},[query,cat,sort,favs]);
+ var filtered=query.trim()!==""||cat!=="all"||sort!=="az";
+ function reset(){setQuery("");setCat("all");setSort("az")}
+ function pick(id){setCat(cat===id?"all":id);var el=document.getElementById("tools");if(el)el.scrollIntoView()}
+
+ return h("div",{id:"top"},
+  h(Header,{query:query,setQuery:setQuery}),
+  h("main",null,
+   h("div",{className:"wrap"},
+    h("div",{className:"hero"},
+     h("h1",null,"Discover the Best ",h("span",{className:"grad"},"AI Tools")),
+     h("p",null,"A simple, hand-picked directory of well-known AI tools for chat, images, video, writing, coding, learning and productivity."),
+     h("a",{className:"btn pri",href:"#tools"},"Explore Tools")),
+    h("section",{"aria-labelledby":"cats-h"},
+     h("h2",{id:"cats-h"},"Browse by category"),h("p",{className:"sub"},"Pick a category to filter the directory."),
+     h("div",{className:"cats"},CATEGORIES.map(function(c){
+      return h(CategoryCard,{key:c.id,icon:c.icon,name:c.name,count:counts[c.id]||0,active:cat===c.id,onClick:function(){pick(c.id)}})}))),
+    h("section",{id:"tools","aria-labelledby":"tools-h"},
+     h("h2",{id:"tools-h"},"AI tools"),
+     h("p",{className:"sub"},"Descriptions are brief summaries. Features and pricing change, so check each official site for current details."),
+     h("div",{className:"tools"},
+      h("div",{className:"chips",role:"group","aria-label":"Filter by category"},
+       [{id:"all",name:"All ("+TOOLS.length+")"}].concat(CATEGORIES.map(function(c){return{id:c.id,name:c.name+" ("+(counts[c.id]||0)+")"}})).map(function(c){
+        return h("button",{key:c.id,type:"button",className:"chip"+(cat===c.id?" on":""),"aria-pressed":cat===c.id,onClick:function(){setCat(c.id)}},c.name)})),
+      h("label",{htmlFor:"sort",className:"sub",style:{margin:0}},"Sort:"),
+      h("select",{id:"sort",className:"sel",value:sort,onChange:function(e){setSort(e.target.value)}},
+       h("option",{value:"az"},"A–Z"),h("option",{value:"fav"},"Favorites first")),
+      filtered?h("button",{type:"button",className:"btn",onClick:reset},"Reset filters"):null,
+      h("span",{className:"count","aria-live":"polite"},shown.length+" of "+TOOLS.length+" tools · "+favs.length+" favorite"+(favs.length===1?"":"s"))),
+     shown.length?h("div",{className:"grid"},shown.map(function(t){return h(ToolCard,{key:t.id,tool:t,fav:favs.indexOf(t.id)>-1,toggle:toggle})}))
+      :h("div",{className:"empty",role:"status"},h("h3",null,"No tools found"),h("p",null,"Try a different search or category."),h("button",{type:"button",className:"btn pri",onClick:reset},"Clear search & reset filters"))),
+    h("section",{id:"about"},h("div",{className:"panel"},
+     h("h2",null,"About AI ToolBox"),
+     h("p",null,"AI ToolBox is a small directory that helps you find well-known AI tools in one place. Every entry links to the tool’s official homepage. The list is curated by hand, is not exhaustive, and does not include ratings or reviews."),
+     h("p",null,"Tool features, availability and pricing can change at any time, so please confirm details on each tool’s own website."))),
+    h("section",{id:"contact"},h("div",{className:"panel"},
+     h("h2",null,"Contact"),
+     h("p",null,"This site has no contact form or message-sending service. To get in touch, use the email link below, which opens your own email app."),
+     h("p",null,h("a",{className:"btn pri",href:"mailto:"+CONTACT_EMAIL+"?subject=AI%20ToolBox"},"Email us")),
+     h("p",null,"Note: ",h("code",null,CONTACT_EMAIL)," is a placeholder address. The site owner should replace it with a real one before publishing."))),
+    h("section",{id:"privacy"},h("div",{className:"panel"},
+     h("h2",null,"Privacy Policy"),
+     h("ul",null,
+      h("li",null,"AI ToolBox does not require an account and has no backend server, so it does not collect or send your data to us."),
+      h("li",null,"When you mark a tool as a favorite, its ID is saved in your browser’s localStorage on your own device. It is not uploaded anywhere and stays until you unfavorite the tool or clear your browser data."),
+      h("li",null,"If your browser blocks localStorage, the site still works but favorites won’t be remembered after you leave."),
+      h("li",null,"“Visit Tool” links go to third-party websites, which have their own privacy policies. This site does not control them."),
+      h("li",null,"If features change in the future (for example, adding accounts), this policy should be updated first."))))),
+   h("footer",null,h("div",{className:"wrap"},"© "+new Date().getFullYear()+" AI ToolBox · Independent directory, not affiliated with the listed tools · Details may change over time."))));
+}
+ReactDOM.createRoot(document.getElementById("root")).render(h(App));
+})();
+</script>
+</body>
+</html>
